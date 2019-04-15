@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     $$e^{i\pi} + 1 = 0$$
-    <MathLiveComponent></MathLiveComponent>
+    <MathLiveComponent :onMoveOutOf="mo"></MathLiveComponent>
   </div>
 </template>
 
@@ -13,6 +13,15 @@ export default {
   name: "app",
   components: {
     MathLiveComponent
+  },
+  data() {
+    return {
+      mo: function(direction) {
+        //eslint-disable-next-line
+        console.log(direction);
+        return true;
+      }
+    };
   },
   mounted: function() {
     MathLive.renderMathInDocument();
