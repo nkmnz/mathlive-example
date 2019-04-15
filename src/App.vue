@@ -1,27 +1,26 @@
 <template>
   <div id="app">
     $$e^{i\pi} + 1 = 0$$
-    <MathLiveComponent :onMoveOutOf="mo"></MathLiveComponent>
+    <!--
+    <MathLiveComponent></MathLiveComponent>
+    -->
+    <ML2Tex></ML2Tex>
   </div>
 </template>
 
 <script>
 import MathLive from "mathlive";
-import MathLiveComponent from "./components/MathLiveComponent.vue";
+//import MathLiveComponent from "./components/MathLiveComponent.vue";
+import ML2Tex from "./components/ML2Tex.vue";
 
 export default {
   name: "app",
   components: {
-    MathLiveComponent
+    //MathLiveComponent,
+    ML2Tex
   },
   data() {
-    return {
-      mo: function(direction) {
-        //eslint-disable-next-line
-        console.log(direction);
-        return true;
-      }
-    };
+    return {};
   },
   mounted: function() {
     MathLive.renderMathInDocument();
